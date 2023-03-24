@@ -63,9 +63,12 @@ const App = () => {
     personService
       .getAll()
       .then(personsArr => {
-        setPersons(personsArr);
-        setPersonsToShow(personsArr);
+        setPersons(personsArr || []);
+        setPersonsToShow(personsArr || [] );
         // setCurrentId(personsArr.length)
+      })
+      .catch(e => {
+        console.log('error loading from personservice')
       })
 
   }, [])
